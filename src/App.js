@@ -1,5 +1,7 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from './components/NewExpense/NewExpense';
+
 
 function App() {
 
@@ -30,6 +32,13 @@ function App() {
     },
   ]
 
+  const onSaveData = (savedData) => {
+    const expenseData = savedData;
+    console.log("endpoint", expenseData)
+  }
+
+
+
   // W/O JSX
   // return React.createElement(
   //   'div', {}, React.createElement('h2', {}, "Let's get started!",
@@ -38,7 +47,8 @@ function App() {
 
   return (
     <div>
-      <h2>Expenses</h2>
+      <NewExpense onSaveData={onSaveData} />
+
       <Expenses expenses={expenses} />
     </div>
   );
